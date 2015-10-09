@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        OnclickButtonListener();
 
         // Setup viewPager
         ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
@@ -44,23 +43,6 @@ public class MainActivity extends AppCompatActivity
         //empty
     }
 
-    public void OnclickButtonListener() {
-        settingsButton = (Button)findViewById(R.id.SettingsButton);
-        settingsButton.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        EditText et = (EditText) findViewById(R.id.intentText);
-                        String theText = et.getText().toString();
-                        Intent intent = new Intent("com.lukesau.materialyolomusicplayer.SettingsPanel");
-                        intent.putExtra("passed_text", theText);
-                        startActivity(intent);
-                    }
-                }
-
-        );
-
-    }
 
     private class MyPagerAdapter extends FragmentStatePagerAdapter {
 
@@ -106,6 +88,8 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Intent intent = new Intent(this, SettingsPanel.class);
+            startActivity(intent);
             return true;
         }
 

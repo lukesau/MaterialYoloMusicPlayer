@@ -18,7 +18,8 @@
         </activity>
         <activity
             android:name=".SettingsPanel"
-            android:label="@string/title_activity_settings_panel" >
+            android:label="@string/title_activity_settings_panel"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
     </application>
 
